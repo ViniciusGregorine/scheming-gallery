@@ -175,72 +175,6 @@ nav a.active {
   margin-bottom: 3rem;
 }
 
-/* ── Art grid ── */
-.art-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.art-card {
-  flex: 1 1 240px;
-  max-width: 280px;
-  display: flex;
-  flex-direction: column;
-}
-
-.art-frame {
-  background: linear-gradient(to bottom, #fef3c7, #fefce8);
-  padding: 0.75rem;
-  border: 1px solid rgba(217,179,96,0.6);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.art-frame-inner {
-  border: 1px solid rgba(217,179,96,0.4);
-  overflow: hidden;
-}
-
-.art-frame img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  transition: transform 0.7s;
-}
-
-.art-card:hover .art-frame img {
-  transform: scale(1.05);
-}
-
-.art-info {
-  margin-top: 1rem;
-  text-align: center;
-  padding: 0 0.5rem;
-}
-
-.art-info h3 {
-  font-size: 1.1rem;
-}
-
-.art-info p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
-}
-
-.art-tag {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--primary);
-  background: var(--primary-light);
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-}
-
 /* ── Filters ── */
 .filters {
   display: flex;
@@ -332,8 +266,12 @@ footer {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 24px;
-  padding: 2rem 1.5rem;
+
+  column-gap: 20px;
+  row-gap: 32px;
+  justify-content: space-evenly;
+
+  padding: 2rem 0 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -346,10 +284,9 @@ footer {
 
 .card:hover { opacity: 0.88; }
 
-.card-sm { flex-basis: 220px; }
-.card-md { flex-basis: 300px; }
-.card-lg { flex-basis: 400px; }
-.card-xl { flex-basis: 500px; }
+.card-size {
+    flex-basis: 380px; 
+}
 
 /* ── Frame (Box Model) ── */
 .frame {
@@ -359,17 +296,10 @@ footer {
   position: relative;
 }
 
-
 .frame img {
   display: block;
   width: 100%;
-  object-fit: cover;
 }
-
-.card-sm .frame img { height: 220px; }
-.card-md .frame img { height: 290px; }
-.card-lg .frame img { height: 360px; }
-.card-xl .frame img { height: 420px; }
 
 
 /* ── Caption ── */
