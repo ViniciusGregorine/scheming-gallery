@@ -359,11 +359,6 @@ footer {
   position: relative;
 }
 
-.frame.highlight {
-  border-color: #1a6ef5;
-  padding: 14px;
-  background: #c8e0fa;
-}
 
 .frame img {
   display: block;
@@ -400,36 +395,6 @@ footer {
   font-size: 0.78rem;
   color: var(--text-muted);
   margin-top: 2px;
-}
-
-/* ── Legend ── */
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px;
-  padding: 20px 1.5rem 2rem;
-  border-top: 1px solid var(--border);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.legend h2 {
-  width: 100%;
-  text-align: center;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.76rem;
-  color: #444;
 }
 
 .swatch { width: 28px; height: 28px; border-radius: 3px; flex-shrink: 0; }
