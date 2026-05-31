@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Art Gallery — Box Model & Flexbox</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #e8e8e8;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      padding: 28px 20px 10px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; color: #222; }
+    header p  { font-size: 0.85rem; color: #666; margin-top: 4px; }
+
+    /* ══════════════════════════════════════════
+       FLEXBOX CONTAINER
+       display:flex  |  flex-wrap:wrap  |  justify-content:center
+    ══════════════════════════════════════════ */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0;                  /* gap handled by margin on each frame */
+      padding: 40px 20px;
+      width: 100%;
+    }
+
+    /* ══════════════════════════════════════════
+       BOX MODEL WRAPPER
+       Shows the 4 layers with visible labels
+    ══════════════════════════════════════════ */
+    .box-model-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* MARGIN BOX label */
+    .label-margin {
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* ── MARGIN layer ── */
+    .frame-margin {
+      margin: 28px;            /* 🟡 MARGIN — space outside the border */
+      background: transparent;
+      position: relative;
+    }
+
+    /* BORDER BOX label */
+    .label-border {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      font-weight: bold;
+      color: #fff;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* ── BORDER layer ── */
+    .frame-border {
+      border: 28px solid #222; /* 🟤 BORDER — the picture frame */
+      position: relative;
+      background: #fff;
+    }
+
+    /* Highlighted center frame uses blue border */
+    .frame-border.highlight {
+      border-color: #1a6ef5;
+    }
+
+    /* PADDING BOX label */
+    .label-padding {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* ── PADDING layer ── */
+    .frame-padding {
+      padding: 22px;           /* 🔵 PADDING — the inner mat */
+      background: #fff;
+      position: relative;
+    }
+
+    /* Highlighted center uses light-blue padding */
+    .frame-padding.highlight {
+      background: #a8d0f5;
+    }
+
+    /* CONTENT BOX label */
+    .label-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.72rem;
+      font-weight: bold;
+      color: #222;
+      background: rgba(255,255,255,0.85);
+      padding: 4px 10px;
+      border: 1px solid #aaa;
+      white-space: nowrap;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ── CONTENT layer — the painting ── */
+    .frame-content {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .frame-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Caption ── */
+    .caption {
+      background: #fff;
+      padding: 8px 10px 10px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+    .caption h3 { font-size: 0.8rem; color: #222; }
+    .caption p  { font-size: 0.68rem; color: #888; margin-top: 2px; }
+
+    /* ══════════════════════════════════════════
+       LEGEND — also uses Flexbox
+    ══════════════════════════════════════════ */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 30px 30px;
+      width: 100%;
+      background: #d8d8d8;
+      border-top: 1px solid #bbb;
+    }
+    .legend h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #333;
+    }
+    .swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .sw-margin  { background: #e8e8e8; border: 2px dashed #999; }
+    .sw-border  { background: #222;    border: 2px solid #555; }
+    .sw-border-hl { background: #1a6ef5; border: 2px solid #0a4ec0; }
+    .sw-padding { background: #fff;    border: 2px dashed #bbb; }
+    .sw-padding-hl { background: #a8d0f5; border: 2px dashed #5599dd; }
+    .sw-content { background: #aaa;    border: 2px solid #888; }
+  </style>
+</head>
+<body>
+
+  <!-- <header>
+    <h1>🖼️ CSS Art Gallery</h1>
+    <p>Box Model & Flexbox — School POC · Hover to explore</p>
+  </header> -->
+
+  <!-- <details>
+  <summary>Click to expand</summary>
+  <p>Here is your expansive, hidden text that appears when you click the summary.</p>
+</details> -->
+  <!-- ══════════════════════════════════════════
+       FLEXBOX GALLERY CONTAINER
+  ══════════════════════════════════════════ -->
+  <main class="gallery">
+
+    <!-- ── Painting 1 (dark frame, no labels) ── -->
+    <div class="box-model-wrapper">
+      <div class="frame-margin">
+        <div class="frame-border">
+          <div class="frame-padding">
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80" alt="Street Art" />
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Jour de Amour</h3>
+          <p>Street Art · Urban Series</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Painting 2 CENTER (blue frame, all labels visible) ── -->
+    <div class="box-model-wrapper">
+      <!-- <span class="label-margin">Margin box</span> -->
+      <div class="frame-margin">
+        <div class="frame-border highlight">
+          <!-- <span class="label-border">Border box</span> -->
+          <div class="frame-padding highlight">
+            <!-- <span class="label-padding">Padding box</span> -->
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80" alt="Abstract Marble" />
+              <!-- <span class="label-content">Content box</span> -->
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Marble Abstract</h3>
+          <p>Contemporary · 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Painting 3 (dark frame, no labels) ── -->
+    <div class="box-model-wrapper">
+      <div class="frame-margin">
+        <div class="frame-border">
+          <div class="frame-padding">
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=400&q=80" alt="Geometric Pattern" />
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Geometric Harmony</h3>
+          <p>Pattern Art · Modern</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── Painting 1 (dark frame, no labels) ── -->
+    <div class="box-model-wrapper">
+      <div class="frame-margin">
+        <div class="frame-border">
+          <div class="frame-padding">
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80" alt="Street Art" />
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Jour de Amour</h3>
+          <p>Street Art · Urban Series</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Painting 2 CENTER (blue frame, all labels visible) ── -->
+    <div class="box-model-wrapper">
+      <!-- <span class="label-margin">Margin box</span> -->
+      <div class="frame-margin">
+        <div class="frame-border highlight">
+          <!-- <span class="label-border">Border box</span> -->
+          <div class="frame-padding highlight">
+            <!-- <span class="label-padding">Padding box</span> -->
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80" alt="Abstract Marble" />
+              <!-- <span class="label-content">Content box</span> -->
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Marble Abstract</h3>
+          <p>Contemporary · 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Painting 3 (dark frame, no labels) ── -->
+    <div class="box-model-wrapper">
+      <div class="frame-margin">
+        <div class="frame-border">
+          <div class="frame-padding">
+            <div class="frame-content">
+              <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=400&q=80" alt="Geometric Pattern" />
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <h3>Geometric Harmony</h3>
+          <p>Pattern Art · Modern</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       LEGEND — Flexbox row
+  ══════════════════════════════════════════ -->
+  <!-- <section class="legend">
+    <h2>📦 Box Model Layers</h2>
+    <div class="legend-item">
+      <div class="swatch sw-margin"></div>
+      <span><strong>Margin</strong> — outer space between frames</span>
+    </div>
+    <div class="legend-item">
+      <div class="swatch sw-border"></div>
+      <span><strong>Border</strong> — the picture frame (dark)</span>
+    </div>e
+    <div class="legend-item">
+      <div class="swatch sw-border-hl"></div>
+      <span><strong>Border</strong> — highlighted frame (blue)</span>
+    </div>
+    <div class="legend-item">
+      <div class="swatch sw-padding"></div>
+      <span><strong>Padding</strong> — inner mat (white)</span>
+    </div>
+    <div class="legend-item">
+      <div class="swatch sw-padding-hl"></div>
+      <span><strong>Padding</strong> — highlighted mat (light blue)</span>
+    </div>
+    <div class="legend-item">
+      <div class="swatch sw-content"></div>
+      <span><strong>Content</strong> — the painting image</span>
+    </div>
+  </section> -->
+
+</body>
+</html>
