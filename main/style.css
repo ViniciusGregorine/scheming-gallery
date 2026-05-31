@@ -328,3 +328,72 @@ footer {
 .sw-padding { background: #fff; border: 2px dashed #bbb; }
 .sw-padding-hl { background: #c8e0fa; border: 2px dashed #5599dd; }
 .sw-content { background: #aaa; }
+
+/* Painting ──  Detail ── */
+.obra-detail {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.obra-frame {
+  flex: 0 0 45%;
+  max-width: 500px;
+}
+
+.obra-info {
+  flex: 1;
+  padding-top: 0.5rem;
+}
+
+.obra-title {
+  font-size: 2.5rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.obra-artist {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.obra-desc {
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+.obra-specs {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.spec-row {
+  display: flex;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-row dt {
+  flex: 0 0 120px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.spec-row dd {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .obra-detail {
+    flex-direction: column;
+  }
+
+  .obra-frame {
+    flex: none;
+    max-width: 100%;
+  }
+}
