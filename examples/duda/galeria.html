@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria — ArtSpace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="galeria.html" class="active">Galeria</a>
+    <a href="sobre.html">Sobre</a>
+  </nav>
+
+  <section class="container text-center">
+    <h1 class="section-title">Nossa Galeria</h1>
+    <p class="section-subtitle">Navegue pelas obras da coleção ArtSpace.</p>
+
+    <!-- Filtros (visual only — JS mínimo abaixo) -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="todas">Todas</button>
+      <button class="filter-btn" data-filter="pintura">Pinturas</button>
+      <button class="filter-btn" data-filter="fotografia">Fotografia</button>
+    </div>
+
+    <div class="art-grid" id="gallery">
+
+      <!-- Pinturas -->
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/800px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="A Noite Estrelada">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>A Noite Estrelada</h3>
+          <p>Vincent van Gogh, 1889</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/800px-VanGogh-starry_night_ballance1.jpg" alt="Terraço do Café à Noite">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>Terraço do Café à Noite</h3>
+          <p>Vincent van Gogh, 1888</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/800px-Starry_Night_Over_the_Rhone.jpg" alt="Noite Estrelada sobre o Ródano">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>Noite Estrelada sobre o Ródano</h3>
+          <p>Vincent van Gogh, 1888</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/800px-Tsunami_by_hokusai_19th_century.jpg" alt="A Grande Onda">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>A Grande Onda</h3>
+          <p>Katsushika Hokusai, 1831</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>Mona Lisa</h3>
+          <p>Leonardo da Vinci, 1503</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="pintura">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/800px-The_Scream.jpg" alt="O Grito">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>O Grito</h3>
+          <p>Edvard Munch, 1893</p>
+          <span class="art-tag">Pintura</span>
+        </div>
+      </div>
+
+      <!-- Fotografia -->
+      <div class="art-card" data-category="fotografia">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Ansel_Adams_-_National_Archives_79-AA-Q01.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01.jpg" alt="Montanhas e Nuvens">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>Montanhas e Nuvens</h3>
+          <p>Ansel Adams, 1942</p>
+          <span class="art-tag">Fotografia</span>
+        </div>
+      </div>
+
+      <div class="art-card" data-category="fotografia">
+        <div class="art-frame">
+          <div class="art-frame-inner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/800px-Rotating_earth_%28large%29.gif" alt="Terra Vista do Espaço">
+          </div>
+        </div>
+        <div class="art-info">
+          <h3>Terra Vista do Espaço</h3>
+          <p>NASA, 1972</p>
+          <span class="art-tag">Fotografia</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>© 2025 ArtSpace. Todos os direitos reservados.</footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.art-card').forEach(card => {
+          card.style.display = (f === 'todas' || card.dataset.category === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
