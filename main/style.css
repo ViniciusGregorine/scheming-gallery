@@ -326,3 +326,137 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid var(--border);
 }
+
+/* ── Gallery Masonry ── */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card:hover { opacity: 0.88; }
+
+.card-sm { flex-basis: 220px; }
+.card-md { flex-basis: 300px; }
+.card-lg { flex-basis: 400px; }
+.card-xl { flex-basis: 500px; }
+
+/* ── Frame (Box Model) ── */
+.frame {
+  border: 14px solid #1a1a1a;
+  padding: 10px;
+  background: #fff;
+  position: relative;
+}
+
+.frame.highlight {
+  border-color: #1a6ef5;
+  padding: 14px;
+  background: #c8e0fa;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-sm .frame img { height: 220px; }
+.card-md .frame img { height: 290px; }
+.card-lg .frame img { height: 360px; }
+.card-xl .frame img { height: 420px; }
+
+/* ── Box Model Labels ── */
+.lbl {
+  position: absolute;
+  font-size: 0.62rem;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.lbl-margin  { top: -22px; left: 50%; transform: translateX(-50%); color: #333; }
+.lbl-border  { top: 4px;   left: 50%; transform: translateX(-50%); color: #fff; }
+.lbl-padding { top: 26px;  left: 50%; transform: translateX(-50%); color: #1a4a8a; }
+.lbl-content {
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: #111;
+  background: rgba(255,255,255,0.85);
+  padding: 3px 8px;
+  border: 1px solid #aaa;
+}
+
+/* ── Caption ── */
+.caption {
+  padding: 10px 2px 6px;
+}
+
+.caption .artist {
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.caption .title {
+  font-size: 0.82rem;
+  color: #333;
+  margin-top: 2px;
+}
+
+.caption .price {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.legend h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: #444;
+}
+
+.swatch { width: 28px; height: 28px; border-radius: 3px; flex-shrink: 0; }
+.sw-margin  { background: #f5f3ef; border: 2px dashed #999; }
+.sw-border  { background: #1a1a1a; }
+.sw-border-hl { background: #1a6ef5; }
+.sw-padding { background: #fff; border: 2px dashed #bbb; }
+.sw-padding-hl { background: #c8e0fa; border: 2px dashed #5599dd; }
+.sw-content { background: #aaa; }

@@ -17,139 +17,109 @@
   <section class="container text-center">
     <h1 class="section-title">Nossa Galeria</h1>
     <p class="section-subtitle">Navegue pelas obras da coleção ArtSpace.</p>
-
-    <!-- Filtros (visual only — JS mínimo abaixo) -->
-    <div class="filters">
-      <button class="filter-btn active" data-filter="todas">Todas</button>
-      <button class="filter-btn" data-filter="pintura">Pinturas</button>
-      <button class="filter-btn" data-filter="fotografia">Fotografia</button>
-    </div>
-
-    <div class="art-grid" id="gallery">
-
-      <!-- Pinturas -->
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/800px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="A Noite Estrelada">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>A Noite Estrelada</h3>
-          <p>Vincent van Gogh, 1889</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/800px-VanGogh-starry_night_ballance1.jpg" alt="Terraço do Café à Noite">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>Terraço do Café à Noite</h3>
-          <p>Vincent van Gogh, 1888</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/800px-Starry_Night_Over_the_Rhone.jpg" alt="Noite Estrelada sobre o Ródano">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>Noite Estrelada sobre o Ródano</h3>
-          <p>Vincent van Gogh, 1888</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/800px-Tsunami_by_hokusai_19th_century.jpg" alt="A Grande Onda">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>A Grande Onda</h3>
-          <p>Katsushika Hokusai, 1831</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>Mona Lisa</h3>
-          <p>Leonardo da Vinci, 1503</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="pintura">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/800px-The_Scream.jpg" alt="O Grito">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>O Grito</h3>
-          <p>Edvard Munch, 1893</p>
-          <span class="art-tag">Pintura</span>
-        </div>
-      </div>
-
-      <!-- Fotografia -->
-      <div class="art-card" data-category="fotografia">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Ansel_Adams_-_National_Archives_79-AA-Q01.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01.jpg" alt="Montanhas e Nuvens">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>Montanhas e Nuvens</h3>
-          <p>Ansel Adams, 1942</p>
-          <span class="art-tag">Fotografia</span>
-        </div>
-      </div>
-
-      <div class="art-card" data-category="fotografia">
-        <div class="art-frame">
-          <div class="art-frame-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/800px-Rotating_earth_%28large%29.gif" alt="Terra Vista do Espaço">
-          </div>
-        </div>
-        <div class="art-info">
-          <h3>Terra Vista do Espaço</h3>
-          <p>NASA, 1972</p>
-          <span class="art-tag">Fotografia</span>
-        </div>
-      </div>
-
-    </div>
   </section>
 
-  <footer>© 2025 ArtSpace. Todos os direitos reservados.</footer>
+  <main class="gallery">
 
-  <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.filter-btn.active').classList.remove('active');
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.art-card').forEach(card => {
-          card.style.display = (f === 'todas' || card.dataset.category === f) ? '' : 'none';
-        });
-      });
-    });
-  </script>
+    <div class="card card-lg">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80" alt="Street Art">
+      </div>
+      <div class="caption">
+        <div class="artist">Mirian de Los Angeles</div>
+        <div class="title">Dédalo sobe a parede</div>
+        <div class="price">A partir de R$ 390,00</div>
+      </div>
+    </div>
+
+    <div class="card card-md" style="position:relative;">
+      <div style="position:relative;">
+        <span class="lbl lbl-margin">Margin box</span>
+        <div class="frame highlight" style="position:relative;">
+          <span class="lbl lbl-border">Border box</span>
+          <span class="lbl lbl-padding">Padding box</span>
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=500&q=80" alt="Abstract">
+            <span class="lbl lbl-content">Content box</span>
+          </div>
+        </div>
+      </div>
+      <div class="caption">
+        <div class="artist">Alemão Art</div>
+        <div class="title">O vendedor de obras de arte</div>
+        <div class="price">A partir de R$ 990,00</div>
+      </div>
+    </div>
+
+    <div class="card card-xl">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=700&q=80" alt="Geometric">
+      </div>
+      <div class="caption">
+        <div class="artist">Ana Aly</div>
+        <div class="title">Plumária Celeste</div>
+        <div class="price">A partir de R$ 990,00</div>
+      </div>
+    </div>
+
+    <div class="card card-sm">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=400&q=80" alt="Red Abstract">
+      </div>
+      <div class="caption">
+        <div class="artist">Antonio Palácio</div>
+        <div class="title">Red 001</div>
+        <div class="price">A partir de R$ 390,00</div>
+      </div>
+    </div>
+
+    <div class="card card-sm">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=400&q=80" alt="Colorful">
+      </div>
+      <div class="caption">
+        <div class="artist">Carla Voss</div>
+        <div class="title">Explosão Cromática</div>
+        <div class="price">A partir de R$ 490,00</div>
+      </div>
+    </div>
+
+    <div class="card card-xl">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=700&q=80" alt="Modern Art">
+      </div>
+      <div class="caption">
+        <div class="artist">Rafael Moura</div>
+        <div class="title">Formas em Movimento</div>
+        <div class="price">A partir de R$ 1.200,00</div>
+      </div>
+    </div>
+
+    <div class="card card-md">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=500&q=80" alt="Portrait">
+      </div>
+      <div class="caption">
+        <div class="artist">Lena Souza</div>
+        <div class="title">Retrato Urbano</div>
+        <div class="price">A partir de R$ 750,00</div>
+      </div>
+    </div>
+
+    <div class="card card-lg">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=600&q=80" alt="Landscape">
+      </div>
+      <div class="caption">
+        <div class="artist">Bruno Faria</div>
+        <div class="title">Horizonte Dourado</div>
+        <div class="price">A partir de R$ 880,00</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>© 2025 ArtSpace. Todos os direitos reservados.</footer>
 
 </body>
 </html>
