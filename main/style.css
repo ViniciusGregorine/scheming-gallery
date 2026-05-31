@@ -321,12 +321,6 @@ footer {
   margin-top: 2px;
 }
 
-.caption .price {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
 .swatch { width: 28px; height: 28px; border-radius: 3px; flex-shrink: 0; }
 .sw-margin  { background: #f5f3ef; border: 2px dashed #999; }
 .sw-border  { background: #1a1a1a; }
