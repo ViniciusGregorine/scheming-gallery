@@ -315,8 +315,8 @@ img {
   column-gap: 20px;
   row-gap: 32px;
   justify-content: space-evenly;
-  padding: 2rem 0 2rem;
-  max-width: 1200px;
+  padding: 2rem 0 4rem;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -326,10 +326,13 @@ img {
   transition: opacity 0.2s;
 }
 
-.card:hover { opacity: 0.88; }
+.card:hover { 
+  opacity: 0.88; 
+}
 
 .card-size {
-    flex-basis: 380px; 
+    flex-basis: 32%; 
+    min-width: 480px;
 }
 
 .frame {
