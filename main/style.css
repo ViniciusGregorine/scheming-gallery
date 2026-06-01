@@ -11,7 +11,7 @@
   --primary-light: rgba(184, 134, 11, 0.1);
   --text: #1a1a1a;
   --text-muted: #6b7280;
-  --bg: #ffffff;
+  --bg: #f4f3f0;
   --card-bg: #ffffff;
   --border: #e5e7eb;
   --radius: 0.5rem;
@@ -365,74 +365,6 @@ img {
   margin-top: 2px;
 }
 
-.artwork-detail {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-}
-
-.artwork-frame {
-  flex: 0 0 45%;
-  max-width: 500px;
-}
-
-.artwork-info {
-  flex: 1;
-  padding-top: 0.5rem;
-}
-
-.artwork-title {
-  font-size: 2.5rem;
-  margin: 0.5rem 0 0.25rem;
-}
-
-.artwork-artist {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
-
-.artwork-desc {
-  margin-top: 1.5rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-  max-width: 520px;
-}
-
-.artwork-specs {
-  margin-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-
-.spec-row {
-  display: flex;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.spec-row dt {
-  flex: 0 0 120px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.spec-row dd {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .artwork-detail {
-    flex-direction: column;
-  }
-
-  .artwork-frame {
-    flex: none;
-    max-width: 100%;
-  }
-}
-
 .site-footer {
   background-color: #1a1a1a; 
   color: #f8f9fa;
@@ -519,4 +451,167 @@ img {
   text-align: center;
   font-size: 0.75rem;
   color: rgba(248, 249, 250, 0.5);
+}
+
+/* ==========================================================================
+   3. ESTRUTURA DE LAYOUT (Flexbox & Box Model)
+   ========================================================================== */
+.detail-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 50px 5rem;        
+}
+
+.navigation-wrapper {
+    margin-bottom: 30px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #666666;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #111111;
+}
+
+.artwork-showcase {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;  
+    flex-wrap: wrap;
+
+    min-height: 730px;
+}
+
+/* ==========================================================================
+   4. COLUNA DA ESQUERDA: IMAGEM (Efeito Quadro de Museu)
+   ========================================================================== */
+.artwork-image-container {
+    flex: 1.2;
+    min-width: 400px;
+    background-color: #fff; 
+    padding: 10px;               
+    
+    /* Moldura externa */
+    border: 8px solid #1a1a1a;   
+    
+    /* Filete interno */
+    outline: 1px solid #ffffff;
+    outline-offset: -15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18), 0 3px 10px rgba(0, 0, 0, 0.08); 
+}
+
+.artwork-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   5. COLUNA DA DIREITA: CONTEÚDO TEXTUAL
+   ========================================================================== */
+.artwork-info-container {
+    flex: 1;
+    min-width: 350px;
+    padding-top: 5px;
+}
+
+.artwork-badge {
+    display: inline-block;
+    background-color: #e5e3dc;   
+    color: #666666;
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.artwork-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.artwork-meta {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+.artwork-description {
+    font-size: 1.05rem;
+    color: #3a3a3a;
+    line-height: 1.65;
+    margin-bottom: 35px;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   6. FICHA TÉCNICA 
+   ========================================================================== */
+.technical-specifications {
+    border-top: 1px solid #c5c4bf; 
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+.spec-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: #111111;
+    cursor: pointer;
+    padding: 5px 0;
+    user-select: none;
+    list-style: none;
+}
+
+.spec-summary::-webkit-details-marker {
+    display: none;
+}
+
+.technical-specifications[open] .toggle-icon {
+    transform: rotate(45deg);
+    color: #666666;
+}
+
+.spec-list {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    row-gap: 14px;
+    padding: 20px 0 5px 0;      
+    animation: fadeIn 0.25s ease-out;
+}
+
+/* --- SELETORES COMBINADOS --- */
+.spec-list dt, 
+.spec-list dd {
+    font-size: 0.95rem;
+    padding-bottom: 6px;
+    color: #222222;
+}
+
+.spec-list dt {
+    color: #666666;             
+}
+
+.spec-list dd {
+    font-weight: normal;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
 }
