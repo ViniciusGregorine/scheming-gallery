@@ -11,6 +11,7 @@
   --primary-light: rgba(184, 134, 11, 0.1);
   --text: #1a1a1a;
   --text-muted: #6b7280;
+  --text-soft: #666666;
   --bg: #f4f3f0;
   --card-bg: #ffffff;
   --border: #e5e7eb;
@@ -453,9 +454,6 @@ img {
   color: rgba(248, 249, 250, 0.5);
 }
 
-/* ==========================================================================
-   3. ESTRUTURA DE LAYOUT (Flexbox & Box Model)
-   ========================================================================== */
 .detail-container {
     max-width: 1250px;
     margin: 0 auto;
@@ -468,7 +466,7 @@ img {
 
 .back-link {
     text-decoration: none;
-    color: #666666;
+    color: var(--text-soft);
     font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
@@ -489,9 +487,6 @@ img {
     min-height: 730px;
 }
 
-/* ==========================================================================
-   4. COLUNA DA ESQUERDA: IMAGEM (Efeito Quadro de Museu)
-   ========================================================================== */
 .artwork-image-container {
     flex: 1.2;
     min-width: 400px;
@@ -513,9 +508,6 @@ img {
     display: block;
 }
 
-/* ==========================================================================
-   5. COLUNA DA DIREITA: CONTEÚDO TEXTUAL
-   ========================================================================== */
 .artwork-info-container {
     flex: 1;
     min-width: 350px;
@@ -525,7 +517,7 @@ img {
 .artwork-badge {
     display: inline-block;
     background-color: #e5e3dc;   
-    color: #666666;
+    color: var(--text-soft);
     padding: 4px 12px;
     font-size: 0.72rem;
     text-transform: uppercase;
@@ -544,7 +536,7 @@ img {
 .artwork-meta {
     font-style: italic;
     font-size: 1.15rem;
-    color: #666666;
+    color: var(--text-soft);
     margin-bottom: 25px;
 }
 
@@ -556,9 +548,7 @@ img {
     text-align: justify;
 }
 
-/* ==========================================================================
-   6. FICHA TÉCNICA 
-   ========================================================================== */
+
 .technical-specifications {
     border-top: 1px solid #c5c4bf; 
     padding: 15px 0;
@@ -584,7 +574,7 @@ img {
 
 .technical-specifications[open] .toggle-icon {
     transform: rotate(45deg);
-    color: #666666;
+    color: var(--text-soft);
 }
 
 .spec-list {
@@ -595,7 +585,6 @@ img {
     animation: fadeIn 0.25s ease-out;
 }
 
-/* --- SELETORES COMBINADOS --- */
 .spec-list dt, 
 .spec-list dd {
     font-size: 0.95rem;
@@ -604,7 +593,7 @@ img {
 }
 
 .spec-list dt {
-    color: #666666;             
+    color: var(--text-soft);             
 }
 
 .spec-list dd {
