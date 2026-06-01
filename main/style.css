@@ -362,42 +362,42 @@ img {
   margin-top: 2px;
 }
 
-.obra-detail {
+.artwork-detail {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
 }
 
-.obra-frame {
+.artwork-frame {
   flex: 0 0 45%;
   max-width: 500px;
 }
 
-.obra-info {
+.artwork-info {
   flex: 1;
   padding-top: 0.5rem;
 }
 
-.obra-title {
+.artwork-title {
   font-size: 2.5rem;
   margin: 0.5rem 0 0.25rem;
 }
 
-.obra-artist {
+.artwork-artist {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   color: var(--text-muted);
   font-size: 1.1rem;
 }
 
-.obra-desc {
+.artwork-desc {
   margin-top: 1.5rem;
   color: var(--text-muted);
   line-height: 1.8;
   max-width: 520px;
 }
 
-.obra-specs {
+.artwork-specs {
   margin-top: 2rem;
   border-top: 1px solid var(--border);
 }
@@ -420,11 +420,11 @@ img {
 }
 
 @media (max-width: 768px) {
-  .obra-detail {
+  .artwork-detail {
     flex-direction: column;
   }
 
-  .obra-frame {
+  .artwork-frame {
     flex: none;
     max-width: 100%;
   }
